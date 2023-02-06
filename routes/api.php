@@ -25,6 +25,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 
+
 /**
  * Route not Found
  */
