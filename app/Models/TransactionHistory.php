@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Webpatser\Uuid\Uuid;
 
-class Category extends Model
+class TransactionHistory extends Model
 {
     use HasFactory;
 
@@ -16,9 +17,12 @@ class Category extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'user_id',
+        'category_id',
+        'ticker',
+        'type_operation',
+        'value_quotation',
+        'amount',
     ];
 
     /**
@@ -32,4 +36,14 @@ class Category extends Model
 	        $model->id = (string) Uuid::generate(4);
 	    });
 	}
+
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function categories(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }
