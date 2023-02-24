@@ -7,25 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Ramsey\Uuid\Uuid;
 
-class TransactionHistory extends Model
+class UserWallet extends Model
 {
     use HasFactory;
 
-    protected $keyType = 'string';
-    public $incrementing = false;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'user_id',
-        'category_id',
         'type_transaction_id',
+        'category_id',
         'ticker',
-        'value',
-        'amount',
+        'amount'
     ];
 
     /**
@@ -33,7 +24,7 @@ class TransactionHistory extends Model
 	 */
 	protected static function boot()
 	{
-        parent::boot();
+	    parent::boot();
 
 	    self::creating(function ($model) {
 	        $model->id = (string) Uuid::uuid4();

@@ -9,9 +9,9 @@ use Illuminate\Database\Seeder;
 class CategoriesTableSeeder extends Seeder
 {
     protected $categories = [
-        'Ações' => null,
-        'Fundos Imobiliarios' => 'FII',
-        'Renda Fixa' => 'FIRF'
+        'Tickers' => 'ticker',
+        'Real Estate Funds' => 'FII',
+        'Fixed Income' => 'FIRF'
     ];
 
     /**

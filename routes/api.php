@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,12 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 });
 
-
+Route::middleware('auth:api')->prefix('transaction')->controller(TransactionController::class)->group(function () {
+    Route::get('list', 'list');
+    Route::get('tickers', 'tickers');
+    Route::get('prime_rate', 'prime_rate');
+    Route::post('store', 'store');
+});
 
 /**
  * Route not Found

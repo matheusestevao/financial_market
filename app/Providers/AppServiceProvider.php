@@ -28,5 +28,10 @@ class AppServiceProvider extends ServiceProvider
             return Http::baseUrl(config('hgbrazil.url'))
                     ->retry('4', '150');
         });
+
+        Http::macro('brapi', function() {
+            return Http::baseUrl(config('brapi.url'))
+                    ->retry('4', '150');
+        });
     }
 }
