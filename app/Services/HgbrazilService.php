@@ -10,7 +10,7 @@ class HgbrazilService
     {
         return Http::hgbrazil()
                 ->get('', [
-                    'key' => env('HGBRAZIL_KEY'),
+                    'key' => '9f4de14c',
                     'symbol' => $symbol
                 ])
                 ->throw()

@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Ramsey\Uuid\Uuid;
 
-class Category extends Model
+class TypeTransaction extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $keyType = 'string';
     public $incrementing = false;
@@ -21,8 +20,6 @@ class Category extends Model
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
     ];
 
     /**

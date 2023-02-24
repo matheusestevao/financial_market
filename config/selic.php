@@ -7,5 +7,5 @@
  */
 
 return [
-    'rate' => env('SELIC_KEY', '12.75')
+    'rate' => env('SELIC_VALUE', 1275)
 ];
